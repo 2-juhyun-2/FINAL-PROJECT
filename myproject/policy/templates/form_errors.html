@@ -1,0 +1,11 @@
+{% for field, errors in form.errors.items() %}
+<div class="alert" role="alert"> 
+    {{ form[field].label }}: {{ ', '.join(errors) }}
+</div>
+{% endfor %}
+<!-- flash 오류 -->
+{% for message in get_flashed_messages() %}
+<div class="alert" role="alert">
+    {{ message }}
+</div>
+{% endfor %}

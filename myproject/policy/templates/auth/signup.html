@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+body {
+	margin:0;
+	color:#edf3ff;
+	background:#c8c8c8;
+	background:url(https://hdqwalls.com/download/material-design-4k-2048x1152.jpg) fixed;
+	background-size: cover;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.signup-wrap{
+	width: 100%;
+	margin:auto;
+	max-width:510px;
+	min-height:550px;
+	position:relative;
+	background:url(https://maxcdn.icons8.com/app/uploads/2016/03/material-1-1000x563.jpg) no-repeat center;
+	background-size: cover;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.signup-html{
+	width:100%;
+	height:100%;
+	position:absolute;
+	padding:60px 70px 50px 70px;
+	background:rgba(0,0,0,0.5);
+}
+
+.login-html .sign-in{
+	display:none;
+}
+.signup-html .tab,
+.signup-form .group .label,
+.signup-form .group .button{
+	text-transform:uppercase;
+}
+.signup-html .tab{ 
+	font-size:25px;
+	padding-left:135px;
+	padding-bottom:25px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid transparent;
+}
+.signup-form{ 
+	min-height:345px;
+	position:relative;
+	-webkit-perspective:1000px;
+	        perspective:1000px;
+	-webkit-transform-style:preserve-3d;
+	        transform-style:preserve-3d;
+}
+.signup-form .group{
+	margin-bottom:15px;
+}
+.signup-form .group .label,
+.signup-form .group .input,
+.signup-form .group .button{
+	width:100%;
+	color:#fff;
+	display:block;
+}
+.signup-form .group .input{
+	border:none;
+	padding:15px 20px;
+	border-radius:25px;
+	background:rgba(255,255,255,.1);
+}
+.signup-form .group .input[data-type="password"]{
+	text-security:circle;
+	-webkit-text-security:circle;
+}
+.signup-form .group .label{
+	color:#aaa;
+	font-size:12px;
+}
+.signup-form .group .button{
+	border:none;
+	margin-top:25px;
+	padding:15px 20px;
+	border-radius:25px;
+	background:#1161ee;
+}
+.hr{
+	height:2px;
+	margin:70px 0 50px 0;
+	background:rgba(255,255,255,.2);
+}
+.error-position{
+	position:fixed;
+	color:#353535;
+	font-style:italic;
+	top:57%;
+	left:37%;
+}
+</style>
+
+<div class = "signup-wrap">
+    <div class="signup-html">
+
+        <label for="tab-1" class="tab">Sign Up</label>
+
+        <div class="signup-form">
+            <form method="post" class="post-form">
+                {{form.csrf_token}}
+                {% include "form_errors.html" %}
+                <div class="form-group">
+                    <label for="username">USERNAME</label>
+                    <input type="text" class="form-control" name="username" id="username" value="{{ form.username.data or '' }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="password1">PASSWORD</label>
+                    <input type="password" class="form-control" name="password1" id="password1" value="{{ form.password1.data or '' }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="password2">PASSWORD CHECK</label>
+                    <input type="password" class="form-control" name="password2" id="password2" value="{{ form.password2.data or '' }}">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-MAIL</label>
+                    <input type="email" class="form-control" name="email" id="email" value="{{ form.email.data or '' }}">
+                </div>
+
+                <div>
+                    <label>LEVEL</label>
+                    <div>
+                        <input type="radio" name="level" value="{{form.level.data or ''}}">LEVEL 1
+                        <input type="radio" name="level" value="{{form.level.data or ''}}">LEVEL 2
+                        <input type="radio" name="level" value="{{form.level.data or ''}}">LEVEL 3
+                    </div>
+                    <br>
+                </div>
+         
+                
+                <button type="submit" class="btn btn-primary">SIGN UP</button>
+                
+            </form>
+    </div>
+</div>
+
+
+
+{% endblock content %}

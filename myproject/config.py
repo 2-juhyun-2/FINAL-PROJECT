@@ -1,0 +1,4 @@
+SQLALCHEMY_DATABASE_URI = 'mysql://root:tkvkdldj1234!@127.0.0.1:3366/policy'
+SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+SECRET_KEY = "dev"
