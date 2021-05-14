@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>TITLE</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+</head>
+
+<body>
+<!-- {{image_names}} -->
+  <div class="container">
+
+    <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Thumbnail Gallery</h1>
+  
+    <hr class="mt-2 mb-5">
+    
+    <!-- <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </nav> -->
+
+    <form  method="GET">
+      검색 : <input type="text" name="keyword">
+      <!-- q에 값이 들어감 -->
+      <input type="submit">
+    </form>
+
+
+    <div class="row text-center text-lg-center">
+  
+      <!-- <div class="col-lg-3 col-md-4 col-6"> -->
+        <a href="#" class="d-block mb-4 h-100">
+          {% for image_name in image_names %}
+          <img src="{{url_for('img_gallary.send_image', filename = image_name)}}" , width="200" , height="100">
+
+
+          <!-- <div class="card" style="width: 18rem;">
+            <img src="{{url_for('static', filename = image_name)}}" class="card-img-top" >
+            <div class="card-body">
+              <p class="card-text">{{image_name}}</p>
+            </div>
+          </div> -->
+          {% endfor %}
+        </a>
+      </div>
+
+  </div>
+  
+</body>
+</html>
+
