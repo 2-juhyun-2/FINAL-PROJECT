@@ -16,5 +16,5 @@ class UserCreateForm(FlaskForm):
     password1 = PasswordField('비밀번호', validators=[DataRequired(), EqualTo('password2', '비밀번호가 일치하지 않습니다.')])
     password2 = PasswordField('비밀번호 확인', validators=[DataRequired()])
     email = EmailField('이메일', validators=[DataRequired(), Email()])
-    level = RadioField('레벨', choices = [('level1','1'),('level2','2'),('level3','3')])
-    created_at = DateTimeField('생성시간')
+    level = RadioField('레벨', choices=[('level1','level1'),('level2','level2'),('level3','level3')])
+   
