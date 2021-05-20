@@ -130,19 +130,7 @@ a{color:inherit;text-decoration:none}
                     <label for="email">E-MAIL</label>
                     <input type="email" class="form-control" name="email" id="email" value="{{ form.email.data or '' }}">
                 </div>
-
-				<div class="form-group">
-                    <label for="level">LEVEL</label>
-						{% for subfield in form.level %}
-						<tr>
-							<td>{{ subfield }}</td>
-							<td>{{ subfield.label }}</td>
-						</tr>
-						{% endfor %}
-                </div>
-
-                       
-                
+             
                 <button type="submit" class="btn btn-primary">SIGN UP</button>
                 
             </form>
