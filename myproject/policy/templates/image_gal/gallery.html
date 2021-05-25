@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+body {
+  font-weight:bold;
+	margin:0;
+	color:#edf3ff;
+	background:#c8c8c8;
+	background:url(https://hdqwalls.com/download/material-design-4k-2048x1152.jpg) fixed;
+	background-size: cover;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+</style>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>TITLE</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"  
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+</head>
+
+<body>
+<!-- {{image_names}} -->
+  <div class="container">
+
+    <br>
+    <h1 class="font-weight-bold text-center text-lg-left mt-4 mb-0" style="color:white">Search Your Keyword</h1>
+  
+    <hr>  
+    <hr class="mt-2 mb-5">
+    
+    <!-- <nav class="navbar navbar-light bg-light">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </nav> -->
+
+    <form  method="GET" style="font-weight:bold">
+      검색 : <input type="text" name="keyword">
+      <!-- q에 값이 들어감 -->
+      <input style="font-weight:bold" type="submit">
+    </form>
+
+
+    <br><br>
+    <div class="row text-center text-lg-center">
+  
+      <!-- <div class="col-lg-3 col-md-4 col-6"> -->
+        <a href="#" class="d-block mb-4 h-100">
+          {% for image_name in image_names %}
+          <img src="{{url_for('img_gallery.send_image', filename = image_name)}}" , width="200" , height="100", style="margin-left: 30px">
+
+
+          <!-- <div class="card" style="width: 18rem;">
+            <img src="{{url_for('static', filename = image_name)}}" class="card-img-top" >
+            <div class="card-body">
+              <p class="card-text">{{image_name}}</p>
+            </div>
+          </div> -->
+          {% endfor %}
+        </a>
+      </div>
+
+  </div>
+  
+</body>
+</html>
+
+{% endblock content %}

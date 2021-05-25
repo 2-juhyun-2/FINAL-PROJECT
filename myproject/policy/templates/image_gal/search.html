@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<style>
+body {
+	margin:0;
+	color:#edf3ff;
+	background:#c8c8c8;
+	background:url(https://hdqwalls.com/download/material-design-4k-2048x1152.jpg) fixed;
+	background-size: cover;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.search-wrap{
+	width: 100%;
+	margin:auto;
+	max-width:510px;
+	min-height:550px;
+	position:relative;
+	background:url(https://maxcdn.icons8.com/app/uploads/2016/03/material-1-1000x563.jpg) no-repeat center;
+	background-size: cover;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.search-html{
+	width:650px;
+	height:100%;
+	position:absolute;
+	padding:60px 70px 50px 70px;
+	background:rgba(0,0,0,0.5);
+}
+
+.search-html .sign-in{
+	display:none;
+}
+.search-html .tab,
+.search-form .group .label,
+.search-form .group .button{
+	text-transform:uppercase;
+}
+.searchtab{ 
+	font-size:25px;
+	padding-left:135px;
+	padding-bottom:25px;
+	margin:0 15px 10px 0;
+	display:inline-block;
+	border-bottom:2px solid transparent;
+}
+
+.form-control{
+    width:400px;
+}
+.boxes{
+    width:600px;
+}
+
+
+</style>
+
+<div class = "search-wrap">
+    <div class="search-html">
+        <label for="tab-1" class="searchtab">SEARCH</label>
+
+         <fieldset class="form-group">
+            <form method="GET">
+                <label for="exampleInputEmail1" class="bmd-label-static">Keyword</label>
+               <span class = "boxes">
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="search your keyword">
+                </span>
+                <span>
+                    <input class = "submitbutton" type="submit">  
+                </span> 
+               
+            </form>              
+        </fieldset>
+
+        <div class="search-form">
+            <a href="#" class="d-block mb-4 h-100">
+          {% for image_name in image_names %}
+          <img src="{{url_for('img_gallary.send_image', filename = image_name)}}" , width="200" , height="100">
+
+          {% endfor %}
+        </a>
+    </div>
+</div>
+
+
+
+{% endblock content %}
